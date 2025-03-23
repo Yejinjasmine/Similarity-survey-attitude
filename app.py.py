@@ -5,7 +5,7 @@ from datetime import datetime, timedelta
 import time
 import random
 
-st.set_page_config(page_title="태도도 문장 유사도 설문", layout="wide")
+st.set_page_config(page_title="태도 문장 유사도 설문", layout="wide")
 
 # 초기 상태 설정
 if "step" not in st.session_state:
