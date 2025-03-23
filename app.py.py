@@ -56,7 +56,7 @@ def get_remaining_time():
 
 # 1단계: 시작 화면
 if st.session_state.step == "start_check":
-    st.title("📋 태도도 문장 유사도 평가 설문 시작")
+    st.title("📋 태도 문장 유사도 평가 설문 시작")
     st.markdown("🔔 **본 설문조사는 핸드폰이 아닌 컴퓨터로 응시하기를 권장합니다.**")
 
     choice = st.radio("기존에 응답 중이던 설문이 있나요?", ["아니오, 처음부터 시작합니다", "예, 이어서 응답하겠습니다"])
