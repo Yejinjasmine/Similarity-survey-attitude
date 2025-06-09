@@ -22,14 +22,14 @@ if "paused" not in st.session_state:
     st.session_state.paused = False
 
 # 파일 경로
-PAIR_FILE = "Set 2 Attitude Pairs.csv"
-SAVE_FILE = "responses_temp.csv"
-BACKUP_FILE = "responses_backup.csv"
+PAIR_FILE = "Set 2 Attitude Pairs.xlsx"
+SAVE_FILE = "responses_temp.xlsx"
+BACKUP_FILE = "responses_backup.xlsx"
 TIME_LIMIT_HOURS = 6
 
 @st.cache_data
 def load_data():
-    return pd.read_csv(PAIR_FILE)
+    return pd.read_excel(PAIR_FILE)
 
 df_original = load_data()
 total_pairs = len(df_original)
@@ -39,7 +39,7 @@ if "shuffled_ids" not in st.session_state:
 # 함수
 def load_previous_responses():
     if os.path.exists(SAVE_FILE):
-        return pd.read_csv(SAVE_FILE)
+        return pd.read_excel(SAVE_FILE)
     return pd.DataFrame()
 
 def generate_participant_id(name, year, phone):
