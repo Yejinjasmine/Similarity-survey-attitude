@@ -29,7 +29,7 @@ TIME_LIMIT_HOURS = 6
 
 @st.cache_data
 def load_data():
-    return pd.read_excel(PAIR_FILE)
+    return pd.read_csv(PAIR_FILE)
 
 df_original = load_data()
 total_pairs = len(df_original)
@@ -39,7 +39,7 @@ if "shuffled_ids" not in st.session_state:
 # 함수
 def load_previous_responses():
     if os.path.exists(SAVE_FILE):
-        return pd.read_excel(SAVE_FILE)
+        return pd.read_csv(SAVE_FILE)
     return pd.DataFrame()
 
 def generate_participant_id(name, year, phone):
@@ -76,7 +76,7 @@ if st.session_state.step == "start_check":
         if submitted:
             participant_id = f"{name}_{year}_{suffix}"
             if os.path.exists(BACKUP_FILE):
-                prev_data = pd.read_excel(BACKUP_FILE)
+                prev_data = pd.read_csv(BACKUP_FILE)
                 if participant_id in prev_data["참가자 ID"].values:
                     st.session_state.user_info = {
                         "참가자 ID": participant_id,
@@ -237,14 +237,14 @@ elif st.session_state.step == "survey":
             st.session_state.responses.append(combined)
 
             df_responses = pd.DataFrame(st.session_state.responses)
-            df_responses.to_excel(SAVE_FILE, index=False)
-            df_responses.to_excel(BACKUP_FILE, index=False)
+            df_responses.to_csv(SAVE_FILE, index=False)
+            df_responses.to_csv(BACKUP_FILE, index=False)
 
             st.session_state.index += 1
             st.rerun()
     else:
         st.success("설문이 완료되었습니다. 감사합니다!")
         final_df = pd.DataFrame(st.session_state.responses)
-        filename = "responses.excel"
-        final_df.to_excel(filename, index=False)
-        st.download_button("응답 데이터 다운로드", data=final_df.to_excel(index=False), file_name=filename, mime="text/excel")
+        filename = "responses.csv"
+        final_df.to_csv(filename, index=False)
+        st.download_button("응답 데이터 다운로드", data=final_df.to_csv(index=False), file_name=filename, mime="text/csv")
