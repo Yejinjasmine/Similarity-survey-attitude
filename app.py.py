@@ -22,9 +22,9 @@ if "paused" not in st.session_state:
     st.session_state.paused = False
 
 # 파일 경로
-PAIR_FILE = "Set 2 Attitude Pairs.xlsx"
-SAVE_FILE = "responses_temp.xlsx"
-BACKUP_FILE = "responses_backup.xlsx"
+PAIR_FILE = "Set 2 Attitude Pairs.csv"
+SAVE_FILE = "responses_temp.csv"
+BACKUP_FILE = "responses_backup.csv"
 TIME_LIMIT_HOURS = 6
 
 @st.cache_data
