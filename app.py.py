@@ -22,7 +22,7 @@ if "paused" not in st.session_state:
     st.session_state.paused = False
 
 # 파일 경로
-PAIR_FILE = "sentence_pairs_attitude.csv"
+PAIR_FILE = "Set 2 Attitude Pairs.csv"
 SAVE_FILE = "responses_temp.csv"
 BACKUP_FILE = "responses_backup.csv"
 TIME_LIMIT_HOURS = 6
