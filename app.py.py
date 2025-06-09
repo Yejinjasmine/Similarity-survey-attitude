@@ -69,7 +69,7 @@ if st.session_state.step == "start_check":
         with st.form("resume_form"):
             st.subheader("이전에 사용한 정보 입력")
             name = st.text_input("이름")
-            year = st.selectbox("출생 연도", list(range(1985, 2009)))
+            year = st.selectbox("출생 연도", list(range(1950, 2009)))
             suffix = st.text_input("휴대폰 번호 마지막 4자리")
             submitted = st.form_submit_button("기존 정보로 이어서 응답하기")
 
@@ -101,8 +101,8 @@ elif st.session_state.step == "intro":
     with st.form("user_info_form"):
         st.header("1️⃣ 기본 정보 입력")
         name = st.text_input("이름")
-        birth_year = st.selectbox("출생 연도", list(range(1985, 2009)))
-        age = st.selectbox("나이 (만 나이 기준)", list(range(17, 41)))
+        birth_year = st.selectbox("출생 연도", list(range(1950, 2009)))
+        age = st.selectbox("나이 (만 나이 기준)", list(range(17, 70)))
         gender = st.selectbox("성별", ["남자", "여자", "Non-binary 혹은 Third gender", "기타"])
         phone = st.text_input("휴대폰 번호 (대시 '-' 없이 입력)")
         bank_account = st.text_input("사례비를 지급받을 은행 및 계좌번호")
